@@ -1,0 +1,687 @@
+﻿@using Highsoft.Web.Mvc.Charts
+
+@{
+    ViewBag.Title = "Dashboard";
+    if (Session["uiid"] == null)
+    {
+        Response.Redirect("/account/login");
+    }
+
+
+}
+
+<meta charset="utf-8" />
+
+<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+<link href="~/Content/kendo/kendo.blueopal.min.css" rel="stylesheet" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>Light Bootstrap Dashboard by Creative Tim</title>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<meta name="viewport" content="width=device-width" />
+
+<style>
+    .collalogo {
+        text-align: center;
+        display: block;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: 5px 0px;
+        display: block;
+        font-size: 32px;
+        color: white;
+        text-align: center;
+        font-weight: 300;
+        line-height: 30px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .session {
+        color: black;
+        margin-left: 46px;
+    }
+
+    .button {
+        margin: -2px 3px;
+        font-size: 14px;
+        color: #333;
+        background-color: #50b1fb;
+        border-color: #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .c1 {
+        padding: 30px 15px;
+        /*min-height: calc(100% - 123px);*/
+        /*background-image: url('../../Content/themes/base/images/beverage-blank-break-997719.jpg');*/
+        background-image: url('../../Content/themes/base/images/background-black-blank-733857.jpg');
+        display: block;
+        background-size: cover;
+        min-height: 90vh;
+    }
+
+    .sidebar-wrapper1 {
+        position: relative;
+        max-height: calc(100vh - 75px);
+        min-height: 100%;
+        overflow: auto;
+        width: 260px;
+        z-index: 4;
+        padding-bottom: 100px;
+        background-color: #50b1fb;
+    }
+     .pop {
+        right: auto;
+        left: 33%;
+        width: 800px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        height: 800px;
+        margin-top: 7%;
+        overflow-x:scroll;
+        overflow-y:scroll;
+    } 
+</style>
+
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="../assets/css/animate.min.css" rel="stylesheet" />
+<link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+<link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+
+@*<link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/dot-luv/jquery-ui.css" rel="stylesheet" />*@
+
+<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"
+      rel="stylesheet" type="text/css" />
+<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
+      rel="stylesheet" type="text/css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<!-- Magnific Popup core CSS file -->
+<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+
+
+
+
+@using (Html.BeginForm("rejected", "Dashboard", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <!--CLIENT VIEW-->
+    <div class="wrapper ">
+        <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
+            <!--
+
+                Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                Tip 2: you can also add an image using data-image tag
+
+            -->
+
+            <div class="sidebar-wrapper1">
+                <div class="logo">
+                    <a class="collalogo" href="/Dashboard/Dash">
+                        Collabera
+                    </a>
+                </div>
+
+                @*<div id="test-form" class="session">
+
+
+                        <h5>@Session["uid"].ToString()</h5>
+                        <h5 style="font-weight:600;">Login Time:</h5><h5>@Session["Time"].ToString()</h5>
+
+                    </div>*@
+
+                <ul class="nav">
+                    <li class="active">
+                        <a href="/Dashboard/Dashboard">
+                            <i class="glyphicon glyphicon-dashboard"></i>
+                            <p style="margin: 0; line-height: 30px;font-size: 16px;font-weight: 400;margin-left: 45px;text-transform:capitalize;">Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Dashboard/Pending">
+                            <i class="glyphicon glyphicon-hourglass"></i>
+                            <p style="margin: 0; line-height: 30px;font-size: 16px;font-weight: 400;margin-left: 45px;text-transform:capitalize;">Pending</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Dashboard/Approved">
+                            <i class="glyphicon glyphicon-ok"></i>
+                            <p style="margin: 0; line-height: 30px;font-size: 16px;font-weight: 400;margin-left: 45px;text-transform:capitalize;">Approved</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/Dashboard/rejected">
+                            <i class="glyphicon glyphicon-ban-circle"></i>
+                            <p style="margin: 0; line-height: 30px;font-size: 16px;font-weight: 400;margin-left: 45px;text-transform:capitalize;">Rejected</p>
+                        </a>
+                    </li>
+                    @if (Session["status"].ToString().Equals("1"))
+                    {
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/Dashboard/NewBlock">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <p style="margin: 0; line-height: 30px;font-size: 16px;font-weight: 400;margin-left: 45px;text-transform:capitalize;">New Block</p>
+                            </a>
+                        </li>
+                    }
+                    <li>
+                        <a href="/Account/ResetPassword">
+                            <i class="glyphicon glyphicon-lock"></i>
+                            <p style="margin: 0; line-height: 30px;font-size: 16px;font-weight: 400;margin-left: 45px;text-transform:capitalize;">Change Password</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/account/logout'>
+
+                            <i class="glyphicon glyphicon-remove-circle"></i>
+                            <p style="margin: 0; line-height: 30px;font-size: 16px;font-weight: 400;margin-left: 45px;text-transform:capitalize;">Log out</p>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input id="companyName" list="companyList" class="col-md-8" placeholder="Search for ConsultantName &amp; Email ID..." />
+                                        <button type="button" id="btnSearch" class="button">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                        <datalist id="companyList"></datalist>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse">
+
+                        <ul class="nav navbar-nav navbar-right">
+                            @*<li>
+                                    <a href="/Dashboard/NewBlock" style="color:blue;">
+                                        NewBlock
+                                    </a>
+                                </li>*@
+                            <li>
+                                <p>
+                                    <label>@Session["uid"].ToString()</label>
+                                    @*<br />
+                                    @if (Session["rights"] != null)
+                                    {
+                                        <label>Reports to: @Session["rights"].ToString()</label>
+                                    }*@
+
+                                </p>
+                            </li>
+
+                            <li class="separator hidden-lg"></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="c1">
+                <div class="container-fluid">
+                    @if (ViewBag.rightsid == 1)
+                    {
+                        foreach (var item in ViewBag.countman)
+                        {
+                            <table class="table table-responsive" style="background-color:powderblue">
+                                <tr>
+                                    <td>
+                                        <label class="h3">Total:  @Html.Encode(@item.Total) </label>
+
+                                    </td>
+                                    <td>
+                                        <label class="h3">Pending:  @Html.Encode(@item.PendingCount) </label>
+
+                                    </td>
+                                    <td>
+                                        <label class="h3">Approved: @Html.Encode(@item.ApprovedCount)</label>
+
+                                    </td>
+                                    <td>
+                                        <label class="h3">Rejected:   @Html.Encode(@item.RejectCount)</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        }
+                        
+                        <table class="table table-bordered table-responsive"style="background-color:aliceblue">
+                            <tr class="table font-weight-bold"style="font-size:20px; background-color:white">
+                                <th>Username</th>
+                                <th>Total</th>
+                                <th>Pending</th>
+                                <th>Approved</th>
+                                <th>Rejected</th>
+                              
+                            </tr>
+                            @foreach (var item in ViewBag.count)
+                            {
+                                <tr>
+                                    <td style="font-size:20px">@item.USERNAME</td>
+                                    <td style="font-size:20px">@item.TOTAL</td>
+                                    <td style="font-size:20px">@item.PENDINGCOUNT</td>
+                                    <td style="font-size:20px">@item.APPROVEDCOUNT</td>
+                                    <td style="font-size:20px">@item.REJECTCOUNT</td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <div class="col-md-12" style="height:20%;">
+                            <div class="card" style="background-color:white ;">
+                                <div class="header">
+                                    <h4 class="title">Dashboard</h4>
+
+                                </div>
+                                <div id="container" style="display:inline-block;"></div>
+                                <div id="Pending" style="display:inline-block;"></div>
+                                <div id="Approved" style="display:inline-block;"></div>
+                                <div id="Rejected" style="display:inline-block;"></div>
+                            </div>
+                        </div>
+
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <div class="modal" id='myModalts'>
+                        <div class="panel panel-primary modal-dialog col-sm-12 col-md-10 col-md-offset-1 pop" style="margin-top:4%;margin-left:5%;height:800px;width:800px">
+
+                            <div class="panel-heading"style="margin-top: -30px;margin-left: -10px;margin-right: -10px;font-weight:bold;font-size:22px;">
+                                Search
+                                @*<button type="submit" class="close" aria-hidden="true">×</button>*@
+                            </div>
+                            <div class="panel-body">
+                                <div id='myModalContentty'></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+}
+<script src="~/scripts/chart/exporting.js"></script>
+<script src="~/scripts/chart/highcharts.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        //-----------------------------------------------Pending----------------------------------------------------------//
+        $.getJSON("/Dashboard/Getdata", function (data) {
+            Highcharts.chart('Pending', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie',
+                    backgroundColor: "",
+
+                    options3d: {
+                        Enabled: true,
+                        Alpha: 45,
+
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                tooltip: {
+                    style: {
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: '15',
+                    }
+                },
+
+                plotOptions: {
+                    pie: {
+                        innerSize: 100,
+                        depth: 50,
+                        size: 170,
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        showInLegend: true
+
+                    }
+                },
+
+                legend: {
+
+                    itemStyle: {
+                        font: '16pt Trebuchet MS, Verdana, sans-serif',
+
+                        //alignColumns: true,
+
+                        //verticalAlign: 'middle',
+                        color: '#000000'
+
+                    },
+                    verticalAlign: 'left',
+                    useHTML: true,
+                    labelFormatter: function () {
+                        return '<div>' + this.name + '  :   ' + this.y + '</div>';
+                    }
+
+                },
+                series: [{
+                    name: 'counts',
+                    colorByPoint: true,
+
+                    data: [{
+                        name: 'Pending',
+                        color: '#f15c80',
+
+                        y: data.admin
+
+                    }
+                    ]
+
+                }]
+            });
+        });
+        //----------------------------------------Approved-----------------------------------------------------//
+
+        $.getJSON("/Dashboard/Getdata", function (data) {
+            Highcharts.chart('Approved', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie',
+                    backgroundColor: "",
+
+                    options3d: {
+                        Enabled: true,
+                        Alpha: 45,
+
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                tooltip: {
+                    style: {
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: '15',
+                    }
+                },
+
+                plotOptions: {
+                    pie: {
+                        innerSize: 100,
+                        depth: 50,
+                        size: 170,
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        showInLegend: true
+
+                    }
+                },
+
+                legend: {
+
+                    itemStyle: {
+                        font: '16pt Trebuchet MS, Verdana, sans-serif',
+
+                        color: '#000000'
+                    },
+                    verticalAlign: 'left',
+                    useHTML: true,
+                    labelFormatter: function () {
+                        return '<div >' + this.name + '  :   ' + this.y + '</div>';
+                    }
+
+                },
+                series: [{
+                    name: 'counts',
+                    colorByPoint: true,
+
+                    data: [{
+                        name: ' Approved',
+                        color: '#2b908f',
+                        y: data.Finance
+                    }
+                    ]
+
+                }]
+            });
+
+        });
+        //-----------------------------Rejected--------------------------------------------------------------//
+        $.getJSON("/Dashboard/Getdata", function (data) {
+            Highcharts.chart('Rejected', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie',
+                    backgroundColor: "",
+
+                    options3d: {
+                        Enabled: true,
+                        Alpha: 45,
+
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                tooltip: {
+                    style: {
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: '15',
+                    }
+                },
+
+                plotOptions: {
+                    pie: {
+                        innerSize: 100,
+                        depth: 50,
+                        size: 170,
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        showInLegend: true
+
+                    }
+                },
+
+                legend: {
+
+                    itemStyle: {
+                        font: '16pt Trebuchet MS, Verdana, sans-serif',
+
+                        color: '#000000'
+                    },
+                    verticalAlign: 'left',
+                    useHTML: true,
+                    labelFormatter: function () {
+                        return '<div >' + this.name + '  :   ' + this.y + '</div>';
+                    }
+
+                },
+                series: [{
+                    name: 'counts',
+                    colorByPoint: true,
+
+                    data: [
+                        {
+                            name: 'Rejected',
+                            color: 'rgb(247, 163, 92)',
+                            y: data.sales
+                        }
+                    ]
+
+                }]
+            });
+        });
+
+        //-------------------------------------------Total-----------------------------------------------------------------//
+        $.getJSON("/Dashboard/Getdata", function (data) {
+            Highcharts.chart('container', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie',
+                    backgroundColor: "",
+
+                    options3d: {
+                        Enabled: true,
+                        Alpha: 45,
+
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                tooltip: {
+                    style: {
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: '15',
+                    }
+                },
+
+                plotOptions: {
+                    pie: {
+                        innerSize: 100,
+                        depth: 50,
+                        size: 170,
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        showInLegend: true
+
+                    }
+                },
+
+                legend: {
+
+                    itemStyle: {
+                        font: '16pt Trebuchet MS, Verdana, sans-serif',
+
+                        color: '#000000'
+                    },
+                    verticalAlign: 'left',
+                    useHTML: true,
+                    labelFormatter: function () {
+                        return '<div >' + this.name + '  :   ' + this.y + '</div>';
+                    }
+
+                },
+
+                series: [{
+                    name: 'counts',
+                    colorByPoint: true,
+
+                    data: [
+                        {
+                            name: 'Total',
+                            color: '#8085e9',
+                            y: data.Dash
+                        }
+                    ]
+
+                }]
+            });
+        });
+        //   ------------------------------------------------------search--------------------------------------------------------//
+
+        $("#companyName").on("input", function () {
+            var options = {};
+            options.url = "/Dashboard/search";
+            options.type = "GET";
+
+            options.dataType = "json";
+            options.success = function (data) {
+                $("#companyList").empty();
+                for (var i = 0; i < data.length; i++) {
+                    $("#companyList").append("<option value='" +
+data[i].Text + "'></option>");
+                }
+            };
+            $.ajax(options);
+        });
+
+        $("#btnSearch").click(function () {
+            debugger;
+
+            var id1 = $("#companyName").val();
+
+            var options = { "backdrop": "static", keyboard: true };
+            openpop(id1, options);
+
+
+        });
+
+    });
+    function openpop(id1, options) {
+
+
+        $.ajax({
+            type: "GET",
+            url: "/Dashboard/getstatus",
+            contentType: "application/json ",
+            data: { id: id1 },
+            success: function (data) {
+
+                debugger;
+                $('#myModalContentty').html(data);
+                $('#myModalts').modal('toggle');
+                $('#myModalts').modal(options);
+                $('#myModalts').modal('show');
+
+            }
+        });
+
+
+    }
+
+</script>

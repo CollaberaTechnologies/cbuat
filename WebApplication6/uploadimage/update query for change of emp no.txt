@@ -1,0 +1,5 @@
+select EmployeeNo,* from hc_resume_bank with(nolock) where EmployeeNo='ML607'
+--begin tran
+--update hc_resume_bank set employeeno='ML607' where rid=845994
+--commit
+select empid,* from hc_req_resume with(nolock) where resid=845994

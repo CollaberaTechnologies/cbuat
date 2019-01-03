@@ -1,0 +1,12 @@
+  <div class="form-group">
+                                    <label class="control-label">Location Preference(s):</label>
+                                    <input type="text" class="form-control" name="name" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Work Location:</label>
+                                    <input type="text" class="form-control" name="name" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Distance from home to work Location:</label>
+                                    <input type="text" class="form-control" name="name" value="" />
+                                </div>

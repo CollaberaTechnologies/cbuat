@@ -1,0 +1,663 @@
+﻿@{
+
+    ViewBag.Title = "Details";
+
+}
+
+<style>
+    .b1 {
+        color: #ffffff;
+        margin-top: 21px;
+        margin-left: 94%;
+        background-color: #d9534f;
+        border-color: #d43f3a;
+    }
+
+
+
+    .scrollit {
+        overflow-x: scroll;
+        overflow-y: scroll;
+        height: 100px;
+    }
+</style>
+
+
+
+<script src="~/Content/Themes1/ckeditor/ckeditor.js"></script>
+
+
+
+
+
+@foreach (var item in ViewBag.Details)
+
+{
+
+    <table class="table scrollit">
+
+        <tr>
+
+            <td>
+
+                <label>Client:</label>
+
+                @Html.Encode(@item.ClientName)
+
+            </td>
+
+            <td>
+
+                <label>Requirement:</label>
+
+                @Html.Encode(@item.Requirement_Name)
+
+            </td>
+
+            <td>
+
+                <label>Requirement Location:</label>
+
+                @Html.Encode(@item.Reqloc)
+
+            </td>
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Requirement BillRate:</label>
+
+                @Html.Encode(@item.REQBR)
+
+            </td>
+
+            <td>
+
+                <label>Name:</label>
+
+                @Html.Encode(@item.Fname)
+
+            </td>
+
+            <td>
+
+                <label>DOB:</label>
+
+                @Html.Encode(@item.DATEOFBIRTH)
+
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td>
+
+                <label>EmailID:</label>
+
+                @Html.Encode(@item.EmailId)
+
+            </td>
+
+            <td>
+
+                <label>Number:</label>
+
+                @Html.Encode(@item.PNumber)
+
+            </td>
+
+            <td>
+
+                <label>Alternate Number:</label>
+
+                @Html.Encode(@item.ANumber)
+
+            </td>
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Current Location:</label>
+
+                @Html.Encode(@item.CLocation)
+
+            </td>
+
+            <td>
+
+                <label>Location preference:</label>
+
+                @Html.Encode(@item.LocPref)
+
+            </td>
+
+            <td>
+
+                <label>Work Location:</label>
+
+                @Html.Encode(@item.WorkLoc)
+
+            </td>
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Distance of Work:</label>
+
+                @Html.Encode(@item.DistHoToWorkLoc)
+
+            </td>
+
+            <td>
+
+                <label>Total Experience:</label>
+
+                @Html.Encode(@item.TotalEXp)
+
+            </td>
+
+            <td>
+
+                <label>Relevant Experience:</label>
+
+                @Html.Encode(@item.REVEXp)
+
+            </td>
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Current Company:</label>
+
+                @Html.Encode(@item.Ccompany)
+
+            </td>
+
+            <td>
+
+                <label>Current Role:</label>
+
+                @Html.Encode(@item.EmpType)
+
+            </td>
+
+            <td>
+
+                <label>Reason For Change:</label>
+
+                @Html.Encode(@item.ReasonJobChange)
+
+            </td>
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Work Authorization:</label>
+
+                @Html.Encode(@item.WorkVisaStatus)
+
+            </td>
+
+            <td>
+
+                <label>Visa Validity:</label>
+
+                @Html.Encode(@item.VisaDate)
+
+            </td>
+
+
+
+            <td>
+
+                <label>Nationality:</label>
+
+                @Html.Encode(@item.Nationalityname)
+
+            </td>
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Current Salary/Rate:</label>
+
+                @Html.Encode(@item.CS)
+
+            </td>
+
+            <td>
+
+                <label>Proposed Bill Rate:</label>
+
+                @Html.Encode(@item.PBR)
+
+            </td>
+
+            <td>
+
+                <label>Pay Rate:</label>
+
+                @Html.Encode(@item.PR)
+
+            </td>
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Gp Per Hour:</label>
+
+                @Html.Encode(@item.GP)
+
+            </td>
+
+            <td>
+
+                <label>GPM:</label>
+
+                @Html.Encode(@item.GPM)
+
+            </td>
+
+            <td>
+
+                <label>Expected Pay Rate:</label>
+
+                @Html.Encode(@item.EPR)
+
+            </td>
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Loaded PayRate:</label>
+
+                @Html.Encode(@item.LPR)
+
+            </td>
+
+            <td>
+
+                <label>Closed at LTD/PAY:</label>
+
+                @Html.Encode(@item.ClosedPaye)
+
+            </td>
+
+            <td>
+
+                <label>National Insurance or PASEL:</label>
+
+                @Html.Encode(@item.Insurance)
+
+            </td>
+
+
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Contract End Date:</label>
+
+                @Html.Encode(@item.ConEndDate)
+
+            </td>
+
+            <td>
+
+                <label>Official Notice Period:</label>
+
+                @Html.Encode(@item.NoticePeriod)
+
+            </td>
+
+            <td>
+
+                <label>Availability To Join:</label>
+
+                @Html.Encode(@item.AvailJoinDate)
+
+            </td>
+
+
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Comfortable For BGV:</label>
+
+                @Html.Encode(@item.BGVStatus)
+
+            </td>
+
+            <td>
+
+                <label>Has Worked With Same Client:</label>
+
+                @Html.Encode(@item.SameClient)
+
+            </td>
+
+            <td>
+
+                <label>If yes reason for Leaving:</label>
+
+                @Html.Encode(@item.ResonForLeaving)
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Other Interviews:</label>
+
+                @Html.Encode(@item.Interviews)
+
+            </td>
+
+
+
+            <td>
+
+                <label>If Yes Provide details:</label>
+
+                @Html.Encode(@item.interviewDetails)
+
+            </td>
+
+
+
+            <td>
+
+                <label>Offer Recieved:</label>
+
+                @Html.Encode(@item.OfferRecieved)
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>If Yes Provide Details:</label>
+
+                @Html.Encode(@item.Offer)
+
+            </td>
+
+
+
+            <td>
+
+                <label>Availability For Telephonic Interview:</label>
+
+                @Html.Encode(@item.AvailabilityStatus)
+
+            </td>
+
+            <td>
+
+                <label>If Yes Provide Details:</label>
+
+                @Html.Encode(@item.TeleInterview)
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>Availability For Face to Face Interview:</label>
+
+                @Html.Encode(@item.FaceInterview)
+
+            </td>
+
+            <td>
+
+                <label>If Yes Provide Details:</label>
+
+                @Html.Encode(@item.FInterview)
+
+            </td>
+
+            <td>
+
+                <label>Any Planned Holidays:</label>
+
+                @Html.Encode(@item.PlannedHolidays)
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <label>If Yes Provide Details:</label>
+
+                @Html.Encode(@item.Holidays)
+
+            </td>
+
+
+
+            <td>
+
+                <label>Reference 1:</label>
+
+                @Html.Encode(@item.Reference1)
+
+            </td>
+
+            <td>
+
+                <label>Reference 2:</label>
+
+                @Html.Encode(@item.Reference2)
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <div class="col-md-12">
+
+        <div class="col-md-6" style="margin-left:-2%;">
+
+            <label>Add Comments:</label>
+
+            <textarea cols="40" rows="12">
+
+
+
+                @Html.Encode(@item.comments)
+
+            </textarea>
+
+        </div>
+
+        <div class="col-md-6" style="margin-left:-2%;">
+
+            <a href="#" data-toggle="modal" data-target="#jd"> JOB DESCRIPTION</a>
+
+            <div class="modal" id="jd" tabindex="-1" style="overflow:hidden;">
+
+                <div class="modal-dialog" style="margin-left: -19%;margin-top: 3%;height: 805px;width: 143%;">
+
+                    <div class="modal-content" style="width:69%;height:785px">
+
+                        <button type="button" id="closejd" class="close"><i class="icon-xs-o-md"></i></button>
+
+                        <div class="modal-header">
+
+                            <h4 class="modal-title caps"><strong>Job Description</strong></h4>
+
+                            <button type="button" id="closejd" class="close" onclick="hide()"><span aria-hidden="true">&times;</span></button>
+
+
+
+                        </div>
+
+                        <div class="modal-body">
+
+                            @Html.TextArea("name", (string)item.JD, new { @id = "FullDescription", @readonly = "readonly" })
+
+                            <script>
+
+                                CKEDITOR.replace("FullDescription", {
+
+                                    height: 600
+
+                                });
+
+                            </script>
+
+
+
+                            @*@Html.Encode(@)*@
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            @*<label>Job Description: </label>
+
+                @Html.TextArea("name", (string)item.JD, new { @id = "FullDescription", @readonly = "readonly" })
+
+                <script>
+
+                    CKEDITOR.replace("FullDescription");
+
+                </script>*@
+
+
+
+            @*@Html.Encode(@)*@
+
+
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        <button type="button" class="btn b1" onclick="hidemain()">Close</button>
+
+    </div>
+
+
+
+}
+
+<script>
+    function hidemain() {
+
+        debugger;
+        $(".modal-backdrop").remove();
+        $("#myModalt").modal('hide');
+
+
+
+    }
+
+    function hide() {
+
+        debugger;
+        $(".modal-backdrop").remove();
+
+        $("#jd").modal('hide');
+
+
+
+    }
+
+
+
+</script>

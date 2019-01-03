@@ -1,0 +1,1436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IHD_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IHD_DB.dbo.CL_APPROVAL_LOG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CL_APPROVAL_LOG">
+          <Key>
+            <PropertyRef Name="Rid" />
+            <PropertyRef Name="CBRid" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Rid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CBRid" Type="bigint" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Reject_comment" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CL_CLOSING_BLOCK">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientID" Type="bigint" Nullable="false" />
+          <Property Name="Reqid" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="bigint" />
+          <Property Name="Fname" Type="nvarchar" MaxLength="200" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="200" />
+          <Property Name="PNumber" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedUser" Type="bigint" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="ANumber" Type="nvarchar" MaxLength="200" />
+          <Property Name="CLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="LocPref" Type="nvarchar" MaxLength="200" />
+          <Property Name="WorkLoc" Type="nvarchar" MaxLength="200" />
+          <Property Name="DistHoToWorkLoc" Type="nvarchar" MaxLength="200" />
+          <Property Name="TExp" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="RExp" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="Ccompany" Type="nvarchar" MaxLength="200" />
+          <Property Name="EmpType" Type="nvarchar" MaxLength="200" />
+          <Property Name="ReasonJobChange" Type="nvarchar" MaxLength="200" />
+          <Property Name="WorkVisaStatus" Type="nvarchar" MaxLength="200" />
+          <Property Name="VisaValidDate" Type="datetime" />
+          <Property Name="NationalityID" Type="nvarchar" MaxLength="30" />
+          <Property Name="GPPerHour" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="GPM" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reference1" Type="nvarchar" MaxLength="200" />
+          <Property Name="Reference2" Type="nvarchar" MaxLength="200" />
+          <Property Name="NoticePeriod" Type="nvarchar" MaxLength="500" />
+          <Property Name="AvailJoinDate" Type="nvarchar" MaxLength="100" />
+          <Property Name="ConProjEndDate" Type="datetime" />
+          <Property Name="SameClient" Type="nvarchar" MaxLength="200" />
+          <Property Name="ResonForLeaving" Type="nvarchar" MaxLength="200" />
+          <Property Name="Interviews" Type="nvarchar" MaxLength="200" />
+          <Property Name="OfferRecieved" Type="nvarchar" MaxLength="200" />
+          <Property Name="Offer" Type="nvarchar" MaxLength="200" />
+          <Property Name="AvailabilityStatus" Type="nvarchar" MaxLength="200" />
+          <Property Name="PlannedHolidays" Type="nvarchar" MaxLength="200" />
+          <Property Name="CurrentSalary" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="ExpectedSalary" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="Payrate" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="ClosedPaye" Type="nvarchar" MaxLength="200" />
+          <Property Name="LoadedPayRate" Type="nvarchar" MaxLength="200" />
+          <Property Name="PurposedBillRate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Insurance" Type="nvarchar" MaxLength="200" />
+          <Property Name="BGVStatus" Type="nvarchar" MaxLength="20" />
+          <Property Name="Imagepath" Type="nvarchar(max)" />
+          <Property Name="interviewDetails" Type="nvarchar" MaxLength="100" />
+          <Property Name="comments" Type="nvarchar" MaxLength="100" />
+          <Property Name="modifieddate" Type="datetime" />
+          <Property Name="modifieduser" Type="bigint" />
+          <Property Name="Holidays" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeleInterview" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaceInterview" Type="nvarchar" MaxLength="50" />
+          <Property Name="FInterview" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cl_mapping">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecID" Type="bigint" Nullable="false" />
+          <Property Name="ManagerID" Type="bigint" Nullable="false" />
+          <Property Name="createdDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CL_USERS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salutation" Type="smallint" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="LocationID" Type="bigint" Nullable="false" />
+          <Property Name="RightsID" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="bigint" Nullable="false" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccessRights" Type="bigint" Nullable="false" />
+          <Property Name="ReportsTo" Type="bigint" Nullable="false" />
+          <Property Name="CreatedUserID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedUserID" Type="bigint" Nullable="false" />
+          <Property Name="V5Rid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="IHD_USER_MAIN">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="bigint" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salutation" Type="smallint" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="DivisionID" Type="bigint" Nullable="false" />
+          <Property Name="LocationID" Type="bigint" Nullable="false" />
+          <Property Name="RightsID" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="bigint" Nullable="false" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeamID" Type="bigint" />
+          <Property Name="AccessRights" Type="bigint" />
+          <Property Name="ReportsTo" Type="bigint" />
+          <Property Name="AccessLevel" Type="ntext" />
+          <Property Name="AccessType" Type="smallint" />
+          <Property Name="ISRecruiter" Type="smallint" />
+          <Property Name="ISTeamLeader" Type="smallint" />
+          <Property Name="ISOpManager" Type="smallint" />
+          <Property Name="ISBuManager" Type="smallint" />
+          <Property Name="ISHRManager" Type="smallint" />
+          <Property Name="ISTopManager" Type="smallint" />
+          <Property Name="ISPartner" Type="smallint" Nullable="false" />
+          <Property Name="InProcessNotification" Type="smallint" Nullable="false" />
+          <Property Name="ResumeNotification" Type="smallint" Nullable="false" />
+          <Property Name="BlockedResumeNotification" Type="smallint" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedUserID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ADSUserID" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ModifiedUserID" Type="bigint" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="InvoiceLocID" Type="bigint" Nullable="false" />
+          <Property Name="V5RID" Type="bigint" />
+          <Property Name="pswd" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="USER_LIST_TEST">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salutation" Type="smallint" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="LocationID" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="bigint" Nullable="false" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedUserID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedUserID" Type="bigint" Nullable="false" />
+          <Property Name="Gender" Type="bigint" Nullable="false" />
+          <Property Name="DOB" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__cl_mappin__RecID__76969D2E">
+          <End Role="CL_USERS" Type="Self.CL_USERS" Multiplicity="1" />
+          <End Role="cl_mapping" Type="Self.cl_mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CL_USERS">
+              <PropertyRef Name="RID" />
+            </Principal>
+            <Dependent Role="cl_mapping">
+              <PropertyRef Name="RecID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="IHD_cl_details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_Approve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="rid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_APPROVE_block" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cb_closing_block_count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="rightsid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cb_closing_block_dash" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="rightsid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cb_closing_block_dashmanager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="rightsid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cb_pending_block" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="rightsid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cb_reject_block_count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="rightsid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cl_details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cl_details_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cl_details_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_cl_search_details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameemail" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_delete_block" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="rid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_reject_block" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_Reject_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="rid" Type="bigint" Mode="In" />
+          <Parameter Name="comment" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="IHD_DBModelStoreContainer">
+          <EntitySet Name="CL_CLOSING_BLOCK" EntityType="Self.CL_CLOSING_BLOCK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_mapping" EntityType="Self.cl_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CL_USERS" EntityType="Self.CL_USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IHD_USER_MAIN" EntityType="Self.IHD_USER_MAIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER_LIST_TEST" EntityType="Self.USER_LIST_TEST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CL_APPROVAL_LOG" EntityType="Self.CL_APPROVAL_LOG" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CL_APPROVAL_LOG].[Rid] AS [Rid], 
+    [CL_APPROVAL_LOG].[CBRid] AS [CBRid], 
+    [CL_APPROVAL_LOG].[UserID] AS [UserID], 
+    [CL_APPROVAL_LOG].[CreatedDate] AS [CreatedDate], 
+    [CL_APPROVAL_LOG].[Status] AS [Status], 
+    [CL_APPROVAL_LOG].[Reject_comment] AS [Reject_comment]
+    FROM [dbo].[CL_APPROVAL_LOG] AS [CL_APPROVAL_LOG]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__cl_mappin__RecID__76969D2E" Association="Self.FK__cl_mappin__RecID__76969D2E">
+            <End Role="CL_USERS" EntitySet="CL_USERS" />
+            <End Role="cl_mapping" EntitySet="cl_mapping" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IHD_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CL_CLOSING_BLOCK">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="Int64" Nullable="false" />
+          <Property Name="Reqid" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Int64" />
+          <Property Name="Fname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedUser" Type="Int64" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="ANumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LocPref" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="WorkLoc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DistHoToWorkLoc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TExp" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="RExp" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="Ccompany" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EmpType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ReasonJobChange" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="WorkVisaStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="VisaValidDate" Type="DateTime" Precision="3" />
+          <Property Name="NationalityID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="GPPerHour" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="GPM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reference1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Reference2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NoticePeriod" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AvailJoinDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ConProjEndDate" Type="DateTime" Precision="3" />
+          <Property Name="SameClient" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ResonForLeaving" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Interviews" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OfferRecieved" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Offer" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AvailabilityStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PlannedHolidays" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentSalary" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ExpectedSalary" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="Payrate" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ClosedPaye" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LoadedPayRate" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PurposedBillRate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Insurance" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BGVStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Imagepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="interviewDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="comments" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="modifieduser" Type="Int64" />
+          <Property Name="Holidays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeleInterview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaceInterview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FInterview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="cl_mapping">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecID" Type="Int64" Nullable="false" />
+          <Property Name="ManagerID" Type="Int64" Nullable="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CL_USERS" Relationship="Self.FK__cl_mappin__RecID__76969D2E" FromRole="cl_mapping" ToRole="CL_USERS" />
+        </EntityType>
+        <EntityType Name="CL_USERS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salutation" Type="Int16" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="LocationID" Type="Int64" Nullable="false" />
+          <Property Name="RightsID" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Int64" Nullable="false" />
+          <Property Name="EmailID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccessRights" Type="Int64" Nullable="false" />
+          <Property Name="ReportsTo" Type="Int64" Nullable="false" />
+          <Property Name="CreatedUserID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int64" Nullable="false" />
+          <Property Name="V5Rid" Type="Int64" />
+          <NavigationProperty Name="cl_mapping" Relationship="Self.FK__cl_mappin__RecID__76969D2E" FromRole="CL_USERS" ToRole="cl_mapping" />
+        </EntityType>
+        <EntityType Name="IHD_USER_MAIN">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salutation" Type="Int16" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="DivisionID" Type="Int64" Nullable="false" />
+          <Property Name="LocationID" Type="Int64" Nullable="false" />
+          <Property Name="RightsID" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Int64" Nullable="false" />
+          <Property Name="EmailID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeamID" Type="Int64" />
+          <Property Name="AccessRights" Type="Int64" />
+          <Property Name="ReportsTo" Type="Int64" />
+          <Property Name="AccessLevel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccessType" Type="Int16" />
+          <Property Name="ISRecruiter" Type="Int16" />
+          <Property Name="ISTeamLeader" Type="Int16" />
+          <Property Name="ISOpManager" Type="Int16" />
+          <Property Name="ISBuManager" Type="Int16" />
+          <Property Name="ISHRManager" Type="Int16" />
+          <Property Name="ISTopManager" Type="Int16" />
+          <Property Name="ISPartner" Type="Int16" Nullable="false" />
+          <Property Name="InProcessNotification" Type="Int16" Nullable="false" />
+          <Property Name="ResumeNotification" Type="Int16" Nullable="false" />
+          <Property Name="BlockedResumeNotification" Type="Int16" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedUserID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ADSUserID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedUserID" Type="Int64" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InvoiceLocID" Type="Int64" Nullable="false" />
+          <Property Name="V5RID" Type="Int64" />
+          <Property Name="pswd" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="USER_LIST_TEST">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salutation" Type="Int16" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="LocationID" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Int64" Nullable="false" />
+          <Property Name="EmailID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedUserID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int64" Nullable="false" />
+          <Property Name="Gender" Type="Int64" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="CL_APPROVAL_LOG">
+          <Key>
+            <PropertyRef Name="Rid" />
+            <PropertyRef Name="CBRid" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Rid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CBRid" Type="Int64" Nullable="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Reject_comment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__cl_mappin__RecID__76969D2E">
+          <End Role="CL_USERS" Type="Self.CL_USERS" Multiplicity="1" />
+          <End Role="cl_mapping" Type="Self.cl_mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CL_USERS">
+              <PropertyRef Name="RID" />
+            </Principal>
+            <Dependent Role="cl_mapping">
+              <PropertyRef Name="RecID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IHD_DBEntities12" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CL_CLOSING_BLOCK" EntityType="Self.CL_CLOSING_BLOCK" />
+          <EntitySet Name="cl_mapping" EntityType="Self.cl_mapping" />
+          <EntitySet Name="CL_USERS" EntityType="Self.CL_USERS" />
+          <EntitySet Name="IHD_USER_MAIN" EntityType="Self.IHD_USER_MAIN" />
+          <EntitySet Name="USER_LIST_TEST" EntityType="Self.USER_LIST_TEST" />
+          <EntitySet Name="CL_APPROVAL_LOG" EntityType="Self.CL_APPROVAL_LOG" />
+          <AssociationSet Name="FK__cl_mappin__RecID__76969D2E" Association="Self.FK__cl_mappin__RecID__76969D2E">
+            <End Role="CL_USERS" EntitySet="CL_USERS" />
+            <End Role="cl_mapping" EntitySet="cl_mapping" />
+          </AssociationSet>
+          <FunctionImport Name="IHD_cl_details" ReturnType="Collection(IHD_DBModel.IHD_cl_details_Result)">
+            <Parameter Name="rid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Approve">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="rid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_APPROVE_block" ReturnType="Collection(IHD_DBModel.sp_APPROVE_block_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cb_closing_block_count" ReturnType="Collection(IHD_DBModel.sp_cb_closing_block_count_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="rightsid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cb_closing_block_dash" ReturnType="Collection(IHD_DBModel.sp_cb_closing_block_dash_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="rightsid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cb_closing_block_dashmanager" ReturnType="Collection(IHD_DBModel.sp_cb_closing_block_dashmanager_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="rightsid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cb_pending_block" ReturnType="Collection(IHD_DBModel.sp_cb_pending_block_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="rightsid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cb_reject_block_count" ReturnType="Collection(Int32)">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="rightsid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cl_details" ReturnType="Collection(IHD_DBModel.sp_cl_details_Result)">
+            <Parameter Name="rid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cl_details_1" ReturnType="Collection(IHD_DBModel.sp_cl_details_1_Result)">
+            <Parameter Name="rid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cl_details_2" ReturnType="Collection(IHD_DBModel.sp_cl_details_2_Result)">
+            <Parameter Name="rid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cl_search_details" ReturnType="Collection(IHD_DBModel.sp_cl_search_details_Result)">
+            <Parameter Name="nameemail" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_delete_block">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="rid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_reject_block" ReturnType="Collection(IHD_DBModel.sp_reject_block_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Reject_Test">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="rid" Mode="In" Type="Int64" />
+            <Parameter Name="comment" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="IHD_cl_details_Result">
+          <Property Type="String" Name="TotalEXp" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="REVEXp" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="CS" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="PBR" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="EPR" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="PR" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="GP" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="LPR" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="DATEOFBIRTH" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="VisaDate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ConEndDate" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="REQBR" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="REQPR" Nullable="false" MaxLength="61" />
+          <Property Type="String" Name="Reqloc" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Requirement_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Nationalityname" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="JD" Nullable="false" />
+          <Property Type="String" Name="ClientName" Nullable="false" MaxLength="100" />
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="Int64" Name="ClientID" Nullable="false" />
+          <Property Type="Int64" Name="Reqid" Nullable="false" />
+          <Property Type="Int64" Name="Status" Nullable="true" />
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PNumber" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CreatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" />
+          <Property Type="String" Name="ANumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CLocation" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LocPref" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="WorkLoc" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DistHoToWorkLoc" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="TExp" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="RExp" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="Ccompany" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmpType" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ReasonJobChange" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="WorkVisaStatus" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="VisaValidDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NationalityID" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="GPPerHour" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="GPM" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reference1" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Reference2" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="NoticePeriod" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="AvailJoinDate" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="ConProjEndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SameClient" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ResonForLeaving" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Interviews" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="OfferRecieved" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Offer" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="AvailabilityStatus" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PlannedHolidays" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="CurrentSalary" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="ExpectedSalary" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="Payrate" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="ClosedPaye" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LoadedPayRate" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="PurposedBillRate" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Insurance" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BGVStatus" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Imagepath" Nullable="true" />
+          <Property Type="String" Name="interviewDetails" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="comments" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="modifieddate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="modifieduser" Nullable="true" />
+          <Property Type="String" Name="Holidays" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TeleInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FaceInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FInterview" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_APPROVE_block_Result">
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CLocation" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Imagepath" Nullable="true" />
+          <Property Type="String" Name="Requirement_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="ClientName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_cb_closing_block_count_Result">
+          <Property Type="Int32" Name="RejectCount" Nullable="false" />
+          <Property Type="Int32" Name="ApprovedCount" Nullable="false" />
+          <Property Type="Int32" Name="PendingCount" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_cb_closing_block_dash_Result">
+          <Property Type="Int32" Name="Total" Nullable="false" />
+          <Property Type="Int32" Name="RejectCount" Nullable="false" />
+          <Property Type="Int32" Name="ApprovedCount" Nullable="false" />
+          <Property Type="Int32" Name="PendingCount" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_cb_closing_block_dashmanager_Result">
+          <Property Type="Int32" Name="TOTAL" Nullable="false" />
+          <Property Type="Int32" Name="REJECTCOUNT" Nullable="false" />
+          <Property Type="Int32" Name="APPROVEDCOUNT" Nullable="false" />
+          <Property Type="Int32" Name="PENDINGCOUNT" Nullable="false" />
+          <Property Type="String" Name="USERNAME" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_cb_pending_block_Result">
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CLocation" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Imagepath" Nullable="true" />
+          <Property Type="String" Name="Requirement_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="ClientName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_cl_details_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="Int64" Name="ClientID" Nullable="false" />
+          <Property Type="Int64" Name="Reqid" Nullable="false" />
+          <Property Type="Int64" Name="Status" Nullable="true" />
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PNumber" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CreatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" />
+          <Property Type="String" Name="ANumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CLocation" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LocPref" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="WorkLoc" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DistHoToWorkLoc" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="TExp" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="RExp" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="Ccompany" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmpType" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ReasonJobChange" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="WorkVisaStatus" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="VisaValidDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NationalityID" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="GPPerHour" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="GPM" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reference1" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Reference2" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="NoticePeriod" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="AvailJoinDate" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="ConProjEndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SameClient" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ResonForLeaving" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Interviews" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="OfferRecieved" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Offer" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="AvailabilityStatus" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PlannedHolidays" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="CurrentSalary" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="ExpectedSalary" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="Payrate" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="ClosedPaye" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LoadedPayRate" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="PurposedBillRate" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Insurance" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BGVStatus" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Imagepath" Nullable="true" />
+          <Property Type="String" Name="interviewDetails" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="comments" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="modifieddate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="modifieduser" Nullable="true" />
+          <Property Type="String" Name="Holidays" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TeleInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FaceInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Requirement_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="JD" Nullable="false" />
+          <Property Type="String" Name="ClientName" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_cl_details_1_Result">
+          <Property Type="String" Name="DATEOFBIRTH" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="VisaDate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ConEndDate" Nullable="true" MaxLength="30" />
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="Int64" Name="ClientID" Nullable="false" />
+          <Property Type="Int64" Name="Reqid" Nullable="false" />
+          <Property Type="Int64" Name="Status" Nullable="true" />
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PNumber" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CreatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" />
+          <Property Type="String" Name="ANumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CLocation" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LocPref" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="WorkLoc" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DistHoToWorkLoc" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="TExp" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="RExp" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="Ccompany" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmpType" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ReasonJobChange" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="WorkVisaStatus" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="VisaValidDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NationalityID" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="GPPerHour" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="GPM" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reference1" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Reference2" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="NoticePeriod" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="AvailJoinDate" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="ConProjEndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SameClient" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ResonForLeaving" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Interviews" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="OfferRecieved" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Offer" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="AvailabilityStatus" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PlannedHolidays" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="CurrentSalary" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="ExpectedSalary" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="Payrate" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="ClosedPaye" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LoadedPayRate" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="PurposedBillRate" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Insurance" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BGVStatus" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Imagepath" Nullable="true" />
+          <Property Type="String" Name="interviewDetails" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="comments" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="modifieddate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="modifieduser" Nullable="true" />
+          <Property Type="String" Name="Holidays" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TeleInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FaceInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Requirement_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Nationalityname" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="JD" Nullable="false" />
+          <Property Type="String" Name="ClientName" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_cl_details_2_Result">
+          <Property Type="String" Name="TotalEXp" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="REVEXp" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="CS" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="PBR" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="EPR" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="PR" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="GP" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="LPR" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="DATEOFBIRTH" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="VisaDate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ConEndDate" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="REQBR" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="REQPR" Nullable="false" MaxLength="61" />
+          <Property Type="String" Name="Reqloc" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Requirement_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Nationalityname" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="JD" Nullable="false" />
+          <Property Type="String" Name="ClientName" Nullable="false" MaxLength="100" />
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="Int64" Name="ClientID" Nullable="false" />
+          <Property Type="Int64" Name="Reqid" Nullable="false" />
+          <Property Type="Int64" Name="Status" Nullable="true" />
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PNumber" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CreatedUser" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" />
+          <Property Type="String" Name="ANumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CLocation" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LocPref" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="WorkLoc" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DistHoToWorkLoc" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="TExp" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="RExp" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="Ccompany" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmpType" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ReasonJobChange" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="WorkVisaStatus" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="VisaValidDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NationalityID" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="GPPerHour" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="GPM" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reference1" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Reference2" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="NoticePeriod" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="AvailJoinDate" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="ConProjEndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SameClient" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ResonForLeaving" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Interviews" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="OfferRecieved" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Offer" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="AvailabilityStatus" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PlannedHolidays" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="CurrentSalary" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="ExpectedSalary" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="Payrate" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="ClosedPaye" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LoadedPayRate" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="PurposedBillRate" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Insurance" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BGVStatus" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Imagepath" Nullable="true" />
+          <Property Type="String" Name="interviewDetails" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="comments" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="modifieddate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="modifieduser" Nullable="true" />
+          <Property Type="String" Name="Holidays" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TeleInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FaceInterview" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FInterview" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_cl_search_details_Result">
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="Status" Nullable="true" />
+          <Property Type="DateTime" Name="Block_created_on" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Block_Created_By" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Requirement_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="ClientName" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_reject_block_Result">
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CLocation" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Imagepath" Nullable="true" />
+          <Property Type="String" Name="Requirement_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="ClientName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Comments" Nullable="false" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IHD_DBModelStoreContainer" CdmEntityContainer="IHD_DBEntities12">
+          <EntitySetMapping Name="CL_CLOSING_BLOCK">
+            <EntityTypeMapping TypeName="IHD_DBModel.CL_CLOSING_BLOCK">
+              <MappingFragment StoreEntitySet="CL_CLOSING_BLOCK">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Reqid" ColumnName="Reqid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ANumber" ColumnName="ANumber" />
+                <ScalarProperty Name="CLocation" ColumnName="CLocation" />
+                <ScalarProperty Name="LocPref" ColumnName="LocPref" />
+                <ScalarProperty Name="WorkLoc" ColumnName="WorkLoc" />
+                <ScalarProperty Name="DistHoToWorkLoc" ColumnName="DistHoToWorkLoc" />
+                <ScalarProperty Name="TExp" ColumnName="TExp" />
+                <ScalarProperty Name="RExp" ColumnName="RExp" />
+                <ScalarProperty Name="Ccompany" ColumnName="Ccompany" />
+                <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+                <ScalarProperty Name="ReasonJobChange" ColumnName="ReasonJobChange" />
+                <ScalarProperty Name="WorkVisaStatus" ColumnName="WorkVisaStatus" />
+                <ScalarProperty Name="VisaValidDate" ColumnName="VisaValidDate" />
+                <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+                <ScalarProperty Name="GPPerHour" ColumnName="GPPerHour" />
+                <ScalarProperty Name="GPM" ColumnName="GPM" />
+                <ScalarProperty Name="Reference1" ColumnName="Reference1" />
+                <ScalarProperty Name="Reference2" ColumnName="Reference2" />
+                <ScalarProperty Name="NoticePeriod" ColumnName="NoticePeriod" />
+                <ScalarProperty Name="AvailJoinDate" ColumnName="AvailJoinDate" />
+                <ScalarProperty Name="ConProjEndDate" ColumnName="ConProjEndDate" />
+                <ScalarProperty Name="SameClient" ColumnName="SameClient" />
+                <ScalarProperty Name="ResonForLeaving" ColumnName="ResonForLeaving" />
+                <ScalarProperty Name="Interviews" ColumnName="Interviews" />
+                <ScalarProperty Name="OfferRecieved" ColumnName="OfferRecieved" />
+                <ScalarProperty Name="Offer" ColumnName="Offer" />
+                <ScalarProperty Name="AvailabilityStatus" ColumnName="AvailabilityStatus" />
+                <ScalarProperty Name="PlannedHolidays" ColumnName="PlannedHolidays" />
+                <ScalarProperty Name="CurrentSalary" ColumnName="CurrentSalary" />
+                <ScalarProperty Name="ExpectedSalary" ColumnName="ExpectedSalary" />
+                <ScalarProperty Name="Payrate" ColumnName="Payrate" />
+                <ScalarProperty Name="ClosedPaye" ColumnName="ClosedPaye" />
+                <ScalarProperty Name="LoadedPayRate" ColumnName="LoadedPayRate" />
+                <ScalarProperty Name="PurposedBillRate" ColumnName="PurposedBillRate" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="BGVStatus" ColumnName="BGVStatus" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="interviewDetails" ColumnName="interviewDetails" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifieduser" ColumnName="modifieduser" />
+                <ScalarProperty Name="Holidays" ColumnName="Holidays" />
+                <ScalarProperty Name="TeleInterview" ColumnName="TeleInterview" />
+                <ScalarProperty Name="FaceInterview" ColumnName="FaceInterview" />
+                <ScalarProperty Name="FInterview" ColumnName="FInterview" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_mapping">
+            <EntityTypeMapping TypeName="IHD_DBModel.cl_mapping">
+              <MappingFragment StoreEntitySet="cl_mapping">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="RecID" ColumnName="RecID" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CL_USERS">
+            <EntityTypeMapping TypeName="IHD_DBModel.CL_USERS">
+              <MappingFragment StoreEntitySet="CL_USERS">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="RightsID" ColumnName="RightsID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="AccessRights" ColumnName="AccessRights" />
+                <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="V5Rid" ColumnName="V5Rid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IHD_USER_MAIN">
+            <EntityTypeMapping TypeName="IHD_DBModel.IHD_USER_MAIN">
+              <MappingFragment StoreEntitySet="IHD_USER_MAIN">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="RightsID" ColumnName="RightsID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="AccessRights" ColumnName="AccessRights" />
+                <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="AccessType" ColumnName="AccessType" />
+                <ScalarProperty Name="ISRecruiter" ColumnName="ISRecruiter" />
+                <ScalarProperty Name="ISTeamLeader" ColumnName="ISTeamLeader" />
+                <ScalarProperty Name="ISOpManager" ColumnName="ISOpManager" />
+                <ScalarProperty Name="ISBuManager" ColumnName="ISBuManager" />
+                <ScalarProperty Name="ISHRManager" ColumnName="ISHRManager" />
+                <ScalarProperty Name="ISTopManager" ColumnName="ISTopManager" />
+                <ScalarProperty Name="ISPartner" ColumnName="ISPartner" />
+                <ScalarProperty Name="InProcessNotification" ColumnName="InProcessNotification" />
+                <ScalarProperty Name="ResumeNotification" ColumnName="ResumeNotification" />
+                <ScalarProperty Name="BlockedResumeNotification" ColumnName="BlockedResumeNotification" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ADSUserID" ColumnName="ADSUserID" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="InvoiceLocID" ColumnName="InvoiceLocID" />
+                <ScalarProperty Name="V5RID" ColumnName="V5RID" />
+                <ScalarProperty Name="pswd" ColumnName="pswd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_LIST_TEST">
+            <EntityTypeMapping TypeName="IHD_DBModel.USER_LIST_TEST">
+              <MappingFragment StoreEntitySet="USER_LIST_TEST">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CL_APPROVAL_LOG">
+            <EntityTypeMapping TypeName="IHD_DBModel.CL_APPROVAL_LOG">
+              <MappingFragment StoreEntitySet="CL_APPROVAL_LOG">
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+                <ScalarProperty Name="CBRid" ColumnName="CBRid" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reject_comment" ColumnName="Reject_comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="IHD_cl_details" FunctionName="IHD_DBModel.Store.IHD_cl_details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.IHD_cl_details_Result">
+                <ScalarProperty Name="TotalEXp" ColumnName="TotalEXp" />
+                <ScalarProperty Name="REVEXp" ColumnName="REVEXp" />
+                <ScalarProperty Name="CS" ColumnName="CS" />
+                <ScalarProperty Name="PBR" ColumnName="PBR" />
+                <ScalarProperty Name="EPR" ColumnName="EPR" />
+                <ScalarProperty Name="PR" ColumnName="PR" />
+                <ScalarProperty Name="GP" ColumnName="GP" />
+                <ScalarProperty Name="LPR" ColumnName="LPR" />
+                <ScalarProperty Name="DATEOFBIRTH" ColumnName="DATEOFBIRTH" />
+                <ScalarProperty Name="VisaDate" ColumnName="VisaDate" />
+                <ScalarProperty Name="ConEndDate" ColumnName="ConEndDate" />
+                <ScalarProperty Name="REQBR" ColumnName="REQBR" />
+                <ScalarProperty Name="REQPR" ColumnName="REQPR" />
+                <ScalarProperty Name="Reqloc" ColumnName="Reqloc" />
+                <ScalarProperty Name="Requirement_Name" ColumnName="Requirement Name" />
+                <ScalarProperty Name="Nationalityname" ColumnName="Nationalityname" />
+                <ScalarProperty Name="JD" ColumnName="JD" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Reqid" ColumnName="Reqid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ANumber" ColumnName="ANumber" />
+                <ScalarProperty Name="CLocation" ColumnName="CLocation" />
+                <ScalarProperty Name="LocPref" ColumnName="LocPref" />
+                <ScalarProperty Name="WorkLoc" ColumnName="WorkLoc" />
+                <ScalarProperty Name="DistHoToWorkLoc" ColumnName="DistHoToWorkLoc" />
+                <ScalarProperty Name="TExp" ColumnName="TExp" />
+                <ScalarProperty Name="RExp" ColumnName="RExp" />
+                <ScalarProperty Name="Ccompany" ColumnName="Ccompany" />
+                <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+                <ScalarProperty Name="ReasonJobChange" ColumnName="ReasonJobChange" />
+                <ScalarProperty Name="WorkVisaStatus" ColumnName="WorkVisaStatus" />
+                <ScalarProperty Name="VisaValidDate" ColumnName="VisaValidDate" />
+                <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+                <ScalarProperty Name="GPPerHour" ColumnName="GPPerHour" />
+                <ScalarProperty Name="GPM" ColumnName="GPM" />
+                <ScalarProperty Name="Reference1" ColumnName="Reference1" />
+                <ScalarProperty Name="Reference2" ColumnName="Reference2" />
+                <ScalarProperty Name="NoticePeriod" ColumnName="NoticePeriod" />
+                <ScalarProperty Name="AvailJoinDate" ColumnName="AvailJoinDate" />
+                <ScalarProperty Name="ConProjEndDate" ColumnName="ConProjEndDate" />
+                <ScalarProperty Name="SameClient" ColumnName="SameClient" />
+                <ScalarProperty Name="ResonForLeaving" ColumnName="ResonForLeaving" />
+                <ScalarProperty Name="Interviews" ColumnName="Interviews" />
+                <ScalarProperty Name="OfferRecieved" ColumnName="OfferRecieved" />
+                <ScalarProperty Name="Offer" ColumnName="Offer" />
+                <ScalarProperty Name="AvailabilityStatus" ColumnName="AvailabilityStatus" />
+                <ScalarProperty Name="PlannedHolidays" ColumnName="PlannedHolidays" />
+                <ScalarProperty Name="CurrentSalary" ColumnName="CurrentSalary" />
+                <ScalarProperty Name="ExpectedSalary" ColumnName="ExpectedSalary" />
+                <ScalarProperty Name="Payrate" ColumnName="Payrate" />
+                <ScalarProperty Name="ClosedPaye" ColumnName="ClosedPaye" />
+                <ScalarProperty Name="LoadedPayRate" ColumnName="LoadedPayRate" />
+                <ScalarProperty Name="PurposedBillRate" ColumnName="PurposedBillRate" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="BGVStatus" ColumnName="BGVStatus" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="interviewDetails" ColumnName="interviewDetails" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifieduser" ColumnName="modifieduser" />
+                <ScalarProperty Name="Holidays" ColumnName="Holidays" />
+                <ScalarProperty Name="TeleInterview" ColumnName="TeleInterview" />
+                <ScalarProperty Name="FaceInterview" ColumnName="FaceInterview" />
+                <ScalarProperty Name="FInterview" ColumnName="FInterview" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Approve" FunctionName="IHD_DBModel.Store.sp_Approve" />
+          <FunctionImportMapping FunctionImportName="sp_APPROVE_block" FunctionName="IHD_DBModel.Store.sp_APPROVE_block">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_APPROVE_block_Result">
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+                <ScalarProperty Name="CLocation" ColumnName="CLocation" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="Requirement_Name" ColumnName="Requirement Name" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cb_closing_block_count" FunctionName="IHD_DBModel.Store.sp_cb_closing_block_count">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_cb_closing_block_count_Result">
+                <ScalarProperty Name="RejectCount" ColumnName="RejectCount" />
+                <ScalarProperty Name="ApprovedCount" ColumnName="ApprovedCount" />
+                <ScalarProperty Name="PendingCount" ColumnName="PendingCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cb_closing_block_dash" FunctionName="IHD_DBModel.Store.sp_cb_closing_block_dash">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_cb_closing_block_dash_Result">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="RejectCount" ColumnName="RejectCount" />
+                <ScalarProperty Name="ApprovedCount" ColumnName="ApprovedCount" />
+                <ScalarProperty Name="PendingCount" ColumnName="PendingCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cb_closing_block_dashmanager" FunctionName="IHD_DBModel.Store.sp_cb_closing_block_dashmanager">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_cb_closing_block_dashmanager_Result">
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="REJECTCOUNT" ColumnName="REJECTCOUNT" />
+                <ScalarProperty Name="APPROVEDCOUNT" ColumnName="APPROVEDCOUNT" />
+                <ScalarProperty Name="PENDINGCOUNT" ColumnName="PENDINGCOUNT" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cb_pending_block" FunctionName="IHD_DBModel.Store.sp_cb_pending_block">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_cb_pending_block_Result">
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+                <ScalarProperty Name="CLocation" ColumnName="CLocation" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="Requirement_Name" ColumnName="Requirement Name" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cb_reject_block_count" FunctionName="IHD_DBModel.Store.sp_cb_reject_block_count" />
+          <FunctionImportMapping FunctionImportName="sp_cl_details" FunctionName="IHD_DBModel.Store.sp_cl_details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_cl_details_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Reqid" ColumnName="Reqid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ANumber" ColumnName="ANumber" />
+                <ScalarProperty Name="CLocation" ColumnName="CLocation" />
+                <ScalarProperty Name="LocPref" ColumnName="LocPref" />
+                <ScalarProperty Name="WorkLoc" ColumnName="WorkLoc" />
+                <ScalarProperty Name="DistHoToWorkLoc" ColumnName="DistHoToWorkLoc" />
+                <ScalarProperty Name="TExp" ColumnName="TExp" />
+                <ScalarProperty Name="RExp" ColumnName="RExp" />
+                <ScalarProperty Name="Ccompany" ColumnName="Ccompany" />
+                <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+                <ScalarProperty Name="ReasonJobChange" ColumnName="ReasonJobChange" />
+                <ScalarProperty Name="WorkVisaStatus" ColumnName="WorkVisaStatus" />
+                <ScalarProperty Name="VisaValidDate" ColumnName="VisaValidDate" />
+                <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+                <ScalarProperty Name="GPPerHour" ColumnName="GPPerHour" />
+                <ScalarProperty Name="GPM" ColumnName="GPM" />
+                <ScalarProperty Name="Reference1" ColumnName="Reference1" />
+                <ScalarProperty Name="Reference2" ColumnName="Reference2" />
+                <ScalarProperty Name="NoticePeriod" ColumnName="NoticePeriod" />
+                <ScalarProperty Name="AvailJoinDate" ColumnName="AvailJoinDate" />
+                <ScalarProperty Name="ConProjEndDate" ColumnName="ConProjEndDate" />
+                <ScalarProperty Name="SameClient" ColumnName="SameClient" />
+                <ScalarProperty Name="ResonForLeaving" ColumnName="ResonForLeaving" />
+                <ScalarProperty Name="Interviews" ColumnName="Interviews" />
+                <ScalarProperty Name="OfferRecieved" ColumnName="OfferRecieved" />
+                <ScalarProperty Name="Offer" ColumnName="Offer" />
+                <ScalarProperty Name="AvailabilityStatus" ColumnName="AvailabilityStatus" />
+                <ScalarProperty Name="PlannedHolidays" ColumnName="PlannedHolidays" />
+                <ScalarProperty Name="CurrentSalary" ColumnName="CurrentSalary" />
+                <ScalarProperty Name="ExpectedSalary" ColumnName="ExpectedSalary" />
+                <ScalarProperty Name="Payrate" ColumnName="Payrate" />
+                <ScalarProperty Name="ClosedPaye" ColumnName="ClosedPaye" />
+                <ScalarProperty Name="LoadedPayRate" ColumnName="LoadedPayRate" />
+                <ScalarProperty Name="PurposedBillRate" ColumnName="PurposedBillRate" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="BGVStatus" ColumnName="BGVStatus" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="interviewDetails" ColumnName="interviewDetails" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifieduser" ColumnName="modifieduser" />
+                <ScalarProperty Name="Holidays" ColumnName="Holidays" />
+                <ScalarProperty Name="TeleInterview" ColumnName="TeleInterview" />
+                <ScalarProperty Name="FaceInterview" ColumnName="FaceInterview" />
+                <ScalarProperty Name="FInterview" ColumnName="FInterview" />
+                <ScalarProperty Name="Requirement_Name" ColumnName="Requirement Name" />
+                <ScalarProperty Name="JD" ColumnName="JD" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cl_details_1" FunctionName="IHD_DBModel.Store.sp_cl_details_1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_cl_details_1_Result">
+                <ScalarProperty Name="DATEOFBIRTH" ColumnName="DATEOFBIRTH" />
+                <ScalarProperty Name="VisaDate" ColumnName="VisaDate" />
+                <ScalarProperty Name="ConEndDate" ColumnName="ConEndDate" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Reqid" ColumnName="Reqid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ANumber" ColumnName="ANumber" />
+                <ScalarProperty Name="CLocation" ColumnName="CLocation" />
+                <ScalarProperty Name="LocPref" ColumnName="LocPref" />
+                <ScalarProperty Name="WorkLoc" ColumnName="WorkLoc" />
+                <ScalarProperty Name="DistHoToWorkLoc" ColumnName="DistHoToWorkLoc" />
+                <ScalarProperty Name="TExp" ColumnName="TExp" />
+                <ScalarProperty Name="RExp" ColumnName="RExp" />
+                <ScalarProperty Name="Ccompany" ColumnName="Ccompany" />
+                <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+                <ScalarProperty Name="ReasonJobChange" ColumnName="ReasonJobChange" />
+                <ScalarProperty Name="WorkVisaStatus" ColumnName="WorkVisaStatus" />
+                <ScalarProperty Name="VisaValidDate" ColumnName="VisaValidDate" />
+                <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+                <ScalarProperty Name="GPPerHour" ColumnName="GPPerHour" />
+                <ScalarProperty Name="GPM" ColumnName="GPM" />
+                <ScalarProperty Name="Reference1" ColumnName="Reference1" />
+                <ScalarProperty Name="Reference2" ColumnName="Reference2" />
+                <ScalarProperty Name="NoticePeriod" ColumnName="NoticePeriod" />
+                <ScalarProperty Name="AvailJoinDate" ColumnName="AvailJoinDate" />
+                <ScalarProperty Name="ConProjEndDate" ColumnName="ConProjEndDate" />
+                <ScalarProperty Name="SameClient" ColumnName="SameClient" />
+                <ScalarProperty Name="ResonForLeaving" ColumnName="ResonForLeaving" />
+                <ScalarProperty Name="Interviews" ColumnName="Interviews" />
+                <ScalarProperty Name="OfferRecieved" ColumnName="OfferRecieved" />
+                <ScalarProperty Name="Offer" ColumnName="Offer" />
+                <ScalarProperty Name="AvailabilityStatus" ColumnName="AvailabilityStatus" />
+                <ScalarProperty Name="PlannedHolidays" ColumnName="PlannedHolidays" />
+                <ScalarProperty Name="CurrentSalary" ColumnName="CurrentSalary" />
+                <ScalarProperty Name="ExpectedSalary" ColumnName="ExpectedSalary" />
+                <ScalarProperty Name="Payrate" ColumnName="Payrate" />
+                <ScalarProperty Name="ClosedPaye" ColumnName="ClosedPaye" />
+                <ScalarProperty Name="LoadedPayRate" ColumnName="LoadedPayRate" />
+                <ScalarProperty Name="PurposedBillRate" ColumnName="PurposedBillRate" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="BGVStatus" ColumnName="BGVStatus" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="interviewDetails" ColumnName="interviewDetails" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifieduser" ColumnName="modifieduser" />
+                <ScalarProperty Name="Holidays" ColumnName="Holidays" />
+                <ScalarProperty Name="TeleInterview" ColumnName="TeleInterview" />
+                <ScalarProperty Name="FaceInterview" ColumnName="FaceInterview" />
+                <ScalarProperty Name="FInterview" ColumnName="FInterview" />
+                <ScalarProperty Name="Requirement_Name" ColumnName="Requirement Name" />
+                <ScalarProperty Name="Nationalityname" ColumnName="Nationalityname" />
+                <ScalarProperty Name="JD" ColumnName="JD" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cl_details_2" FunctionName="IHD_DBModel.Store.sp_cl_details_2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_cl_details_2_Result">
+                <ScalarProperty Name="TotalEXp" ColumnName="TotalEXp" />
+                <ScalarProperty Name="REVEXp" ColumnName="REVEXp" />
+                <ScalarProperty Name="CS" ColumnName="CS" />
+                <ScalarProperty Name="PBR" ColumnName="PBR" />
+                <ScalarProperty Name="EPR" ColumnName="EPR" />
+                <ScalarProperty Name="PR" ColumnName="PR" />
+                <ScalarProperty Name="GP" ColumnName="GP" />
+                <ScalarProperty Name="LPR" ColumnName="LPR" />
+                <ScalarProperty Name="DATEOFBIRTH" ColumnName="DATEOFBIRTH" />
+                <ScalarProperty Name="VisaDate" ColumnName="VisaDate" />
+                <ScalarProperty Name="ConEndDate" ColumnName="ConEndDate" />
+                <ScalarProperty Name="REQBR" ColumnName="REQBR" />
+                <ScalarProperty Name="REQPR" ColumnName="REQPR" />
+                <ScalarProperty Name="Reqloc" ColumnName="Reqloc" />
+                <ScalarProperty Name="Requirement_Name" ColumnName="Requirement Name" />
+                <ScalarProperty Name="Nationalityname" ColumnName="Nationalityname" />
+                <ScalarProperty Name="JD" ColumnName="JD" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Reqid" ColumnName="Reqid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ANumber" ColumnName="ANumber" />
+                <ScalarProperty Name="CLocation" ColumnName="CLocation" />
+                <ScalarProperty Name="LocPref" ColumnName="LocPref" />
+                <ScalarProperty Name="WorkLoc" ColumnName="WorkLoc" />
+                <ScalarProperty Name="DistHoToWorkLoc" ColumnName="DistHoToWorkLoc" />
+                <ScalarProperty Name="TExp" ColumnName="TExp" />
+                <ScalarProperty Name="RExp" ColumnName="RExp" />
+                <ScalarProperty Name="Ccompany" ColumnName="Ccompany" />
+                <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+                <ScalarProperty Name="ReasonJobChange" ColumnName="ReasonJobChange" />
+                <ScalarProperty Name="WorkVisaStatus" ColumnName="WorkVisaStatus" />
+                <ScalarProperty Name="VisaValidDate" ColumnName="VisaValidDate" />
+                <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+                <ScalarProperty Name="GPPerHour" ColumnName="GPPerHour" />
+                <ScalarProperty Name="GPM" ColumnName="GPM" />
+                <ScalarProperty Name="Reference1" ColumnName="Reference1" />
+                <ScalarProperty Name="Reference2" ColumnName="Reference2" />
+                <ScalarProperty Name="NoticePeriod" ColumnName="NoticePeriod" />
+                <ScalarProperty Name="AvailJoinDate" ColumnName="AvailJoinDate" />
+                <ScalarProperty Name="ConProjEndDate" ColumnName="ConProjEndDate" />
+                <ScalarProperty Name="SameClient" ColumnName="SameClient" />
+                <ScalarProperty Name="ResonForLeaving" ColumnName="ResonForLeaving" />
+                <ScalarProperty Name="Interviews" ColumnName="Interviews" />
+                <ScalarProperty Name="OfferRecieved" ColumnName="OfferRecieved" />
+                <ScalarProperty Name="Offer" ColumnName="Offer" />
+                <ScalarProperty Name="AvailabilityStatus" ColumnName="AvailabilityStatus" />
+                <ScalarProperty Name="PlannedHolidays" ColumnName="PlannedHolidays" />
+                <ScalarProperty Name="CurrentSalary" ColumnName="CurrentSalary" />
+                <ScalarProperty Name="ExpectedSalary" ColumnName="ExpectedSalary" />
+                <ScalarProperty Name="Payrate" ColumnName="Payrate" />
+                <ScalarProperty Name="ClosedPaye" ColumnName="ClosedPaye" />
+                <ScalarProperty Name="LoadedPayRate" ColumnName="LoadedPayRate" />
+                <ScalarProperty Name="PurposedBillRate" ColumnName="PurposedBillRate" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="BGVStatus" ColumnName="BGVStatus" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="interviewDetails" ColumnName="interviewDetails" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="modifieduser" ColumnName="modifieduser" />
+                <ScalarProperty Name="Holidays" ColumnName="Holidays" />
+                <ScalarProperty Name="TeleInterview" ColumnName="TeleInterview" />
+                <ScalarProperty Name="FaceInterview" ColumnName="FaceInterview" />
+                <ScalarProperty Name="FInterview" ColumnName="FInterview" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cl_search_details" FunctionName="IHD_DBModel.Store.sp_cl_search_details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_cl_search_details_Result">
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Block_created_on" ColumnName="Block created on" />
+                <ScalarProperty Name="Block_Created_By" ColumnName="Block Created By" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Requirement_Name" ColumnName="Requirement Name" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_delete_block" FunctionName="IHD_DBModel.Store.sp_delete_block" />
+          <FunctionImportMapping FunctionImportName="sp_reject_block" FunctionName="IHD_DBModel.Store.sp_reject_block">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IHD_DBModel.sp_reject_block_Result">
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+                <ScalarProperty Name="CLocation" ColumnName="CLocation" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="Requirement_Name" ColumnName="Requirement Name" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Reject_Test" FunctionName="IHD_DBModel.Store.sp_Reject_Test" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

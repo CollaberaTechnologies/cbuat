@@ -1,0 +1,73 @@
+﻿@model WebApplication6.Models.CL_CLOSING_BLOCK
+@{
+    ViewBag.Title = "getstatus";
+
+}
+<style>
+    .b1 {
+        color: #ffffff;
+        margin-top: 0px;
+        margin-left: 94%;
+        background-color: #d9534f;
+        border-color: #d43f3a;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @*<button type="submit" class="close" aria-hidden="true">×</button>*@
+
+
+        <table class="table table-bordered table-responsive">
+            <tr class="table font-weight-bold">
+                <th>Name</th>
+                <th>EmailID</th>
+                <th>Client</th>
+                <th>Requirement</th>
+                <th>Status</th>
+                <th>Created On</th>
+                <th>Response Date</th>
+            </tr>
+
+            @foreach (var item in ViewBag.status)
+            {
+                <tr>
+                    <td>@item.Fname</td>
+                    <td>@item.EmailId</td>   
+                    <td>@item.ClientName</td>
+                    <td>@item.Requirement_Name</td>
+                    <td>
+                        @if(@item.Status==2)
+                        {
+                        <a href="/Dashboard/Approved?name=@item.Fname&email=@item.EmailId">
+                          Approved
+                        </a>
+                        }
+                        else if(@item.Status == 3) { 
+                        <a href="/Dashboard/rejected?name=@item.Fname&email=@item.EmailId">
+                            Rejected
+                        </a>
+                        }
+                        else
+                        {
+                            <a href="/Dashboard/Pending?name=@item.Fname&email=@item.EmailId">
+                                Pending
+                            </a>
+                        }
+
+                    </td>
+                    <td>@item.Block_created_on</td>
+                    <td>@item.CreatedDate</td>
+                  
+
+
+                </tr>
+
+            }
+            </table>
+           <div>
+               <button type="button" class="btn b1" data-dismiss="modal">Close</button>
+           </div>
+}
+

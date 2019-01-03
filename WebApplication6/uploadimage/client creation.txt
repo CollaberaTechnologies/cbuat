@@ -1,0 +1,9 @@
+select * from Hc_clients with(nolock) order by rid desc
+select * from HC_USER_CLIENT with(nolock) where ClientID=1392
+select * from hcm_locations with(nolock) 
+select * from HC_USERs with(nolock) where LocationID=114 and Status=0
+select ModifiedDate,* from hc_users with (nolock)  where rid in (12191,12192,12193,12194,12201,12202,12210,12211,12228,12242,12275,12300,12336,12165,12170,12171,12172,12173,12174,12179,12180,12181,12182,12183,12184)
+
+
+-- update hc_users set ModifiedDate=GETUTCDATE()  where rid in (12191,12192,12193,12194,12201,12202,12210,12211,12228,12242,12275,12300,12336,12165,12170,12171,12172,12173,12174,12179,12180,12181,12182,12183,12184)
+
